@@ -12,11 +12,6 @@ Things to do:
 3. Have a general parser
 '''
 
-
-
-
-
-
 def blog_update():
     webUrl = urllib2.urlopen(url_input)
     if (webUrl.getcode() == 200):
@@ -24,6 +19,7 @@ def blog_update():
         name_box = soup.find('div', attrs={'class': 'entry-meta'})
         scrape = name_box.text.strip()
         return scrape
+
 def html_update():
     webUrl = urllib2.urlopen(url_input)
     if (webUrl.getcode() == 200):
@@ -31,8 +27,6 @@ def html_update():
         page = soup.find('p')
         scrape = page.text.strip()
         return scrape
-
-
 
 print("Script runs forever until you press ctrl+c")
 time.sleep(2)
@@ -69,10 +63,12 @@ else:
     scrape = html_update()
 OlderScrape = scrape
 time.sleep(float(time_input))
+
 """
 blog_page = 'https://nathan440.wordpress.com/'
 webUrl = urllib2.urlopen(blog_page)
 """
+
 while True:
     if (url_input == 'https://nathan440.wordpress.com/'):
         scrape = blog_update()
